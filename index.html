@@ -3,14 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Etch-a-sketch</title>
+    <title>Etch A Sketch</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="backgroundImage">
-        <div class="container">
+    <div class="toy">
+        <div class="corner-screw screw-tl"></div>
+        <div class="corner-screw screw-tr"></div>
+        <div class="corner-screw screw-bl"></div>
+        <div class="corner-screw screw-br"></div>
+
+        <div class="screen-wrapper">
+            <div class="screen">
+                <div id="grid-container"></div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <div class="knob-group">
+                <div class="knob" id="knobLeft">
+                    <div class="knob-inner"></div>
+                </div>
+                <span class="knob-label">Change size</span>
+            </div>
+
+            <div class="shake-btn" id="shakeBtn">
+                <div class="shake-circle">
+                    <div class="shake-icon"></div>
+                </div>
+                <span class="shake-label">Reset</span>
+            </div>
+
+            <div class="knob-group">
+                <div class="knob" id="knobRight">
+                    <div class="knob-inner"></div>
+                </div>
+                <span class="knob-label">R.G.B</span>
+            </div>
         </div>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>

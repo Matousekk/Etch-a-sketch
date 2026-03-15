@@ -1,24 +1,168 @@
-.container {
-    width: 800px;
-    height: 800px;
-    outline: 2px solid black;
-    flex-wrap: wrap;
-    display: flex;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
+    background: #1a1a1a;
+    min-height: 100vh;
     display: flex;
-    justify-content: center;
     align-items: center;
-    min-height: 100vh;    
+    justify-content: center;
+    font-family: monospace;
 }
 
-html {
-    background-image: url(3210330182_60c7739028_o-57406a775f9b58723d5c1619.png);
-    background-size: 120cap;
-    height: 100vh;
-    width: 100vw;
-    margin: 0;
-    padding: 0;
-    background-repeat: no-repeat;
+.toy {
+    background: linear-gradient(160deg, #dd2400 0%, #bb1e00 60%, #991500 100%);
+    border-radius: 24px;
+    padding: 32px 32px 40px 32px;
+    width: 650px;
+    border: 2px solid #881200;
+    position: relative;
+    box-shadow: 0 8px 0 #661000, 0 12px 32px rgba(0, 0, 0, 0.6);
 }
+
+.toy::before {
+    content: 'ETCH A SKETCH';
+    position: absolute;
+    top: 14px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 4px;
+    color: #ff9977;
+    opacity: 0.6;
+}
+
+/* Screen */
+.screen-wrapper {
+    background: #888;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 8px;
+    box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.5);
+}
+
+.screen {
+    background: #c8c4b8;
+    border-radius: 4px;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+}
+
+#grid-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* Controls */
+.controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 24px;
+    padding: 0 16px;
+}
+
+.knob-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    width: 120px;
+}
+
+.knob {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #f0ece0, #c8c4b4);
+    border: 3px solid #999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 0 #888, 0 6px 12px rgba(0, 0, 0, 0.4);
+    transition: transform 0.1s, box-shadow 0.1s;
+}
+
+.knob:active {
+    transform: translateY(3px);
+    box-shadow: 0 1px 0 #888, 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.knob-inner {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #b0ac9e;
+    border: 2px solid #888;
+}
+
+.knob-label {
+    font-size: 14px;
+    color: #ffaa88;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.75;
+}
+
+/* Shake button */
+.shake-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    width: 120px;
+}
+
+.shake-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #ff9977;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.5;
+    transition: opacity 0.2s;
+}
+
+.shake-circle:hover {
+    opacity: 1;
+}
+
+.shake-icon {
+    width: 16px;
+    height: 16px;
+    border: 2px solid #ffaa88;
+    border-radius: 2px;
+}
+
+.shake-label {
+    font-size: 12px;
+    color: #ffaa88;
+    letter-spacing: 2px;
+    opacity: 0.5;
+}
+
+/* Corner screws */
+.corner-screw {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #881200;
+    border: 1px solid #661000;
+}
+
+.screw-tl { top: 12px; left: 12px; }
+.screw-tr { top: 12px; right: 12px; }
+.screw-bl { bottom: 12px; left: 12px; }
+.screw-br { bottom: 12px; right: 12px; }
